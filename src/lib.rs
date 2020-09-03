@@ -31,6 +31,7 @@ pub struct Universe {
     cells: Vec<Cell>,
 }
 
+#[wasm_bindgen]
 impl Universe {
     pub fn new() -> Universe {
         let width = 64;
@@ -112,6 +113,7 @@ impl std::fmt::Display for Universe {
                 let symbol = if cell == Cell::Dead { '□' } else { '■' };
                 write!(f, "{}", symbol)?;
             }
+            write!(f, "\n");
         }
         Ok(())
     }
